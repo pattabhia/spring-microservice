@@ -14,6 +14,15 @@ public class UserResource {
 
     @GetMapping("/all")
     public List<User> getUsers() {
-        return Arrays.asList(new User());
+        User user1 = new User("Ram", 2300L);
+        User user2 = new User("Abhi", 2400L);
+        return Arrays.asList(user1);
+    }
+
+    @GetMapping("/hateoas/all")
+    public List<User> getHateOasUsers() {
+        User user1 = new User("Ram", 2300L);
+        User user2 = new User("Abhi", 2400L);
+        return Arrays.asList(user1);
     }
 }

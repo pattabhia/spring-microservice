@@ -1,6 +1,8 @@
 package com.abhiram.resource;
 
 import com.abhiram.model.User;
+import org.springframework.hateoas.Link;
+import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +24,10 @@ public class UserResource {
     @GetMapping("/hateoas/all")
     public List<User> getHateOasUsers() {
         User user1 = new User("Ram", 2300L);
+        Link link = ControllerLinkBuilder.linkTo(UserResource.class).slash(user1.getName()).withSelfRel();
+        user1.add(link);
         User user2 = new User("Abhi", 2400L);
+        user2.add(link);
         return Arrays.asList(user1);
     }
 }

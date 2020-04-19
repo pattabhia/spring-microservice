@@ -14,7 +14,6 @@ public class UserResource {
 
     @GetMapping("/all")
     public List<User> getUsers() {
-
         return Arrays.asList(new User());
     }
 }

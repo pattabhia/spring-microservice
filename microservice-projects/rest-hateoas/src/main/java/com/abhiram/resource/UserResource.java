@@ -18,7 +18,7 @@ public class UserResource {
     public List<User> getUsers() {
         User user1 = new User("Ram", 2300L);
         User user2 = new User("Abhi", 2400L);
-        return Arrays.asList(user1);
+        return Arrays.asList(user1, user2);
     }
 
     @GetMapping("/hateoas/all")
@@ -28,6 +28,6 @@ public class UserResource {
         user1.add(link);
         User user2 = new User("Abhi", 2400L);
         user2.add(link);
-        return Arrays.asList(user1);
+        return Arrays.asList(user1, user2);
     }
 }

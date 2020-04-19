@@ -2,7 +2,8 @@ package com.abhiram.resource;
 
 import com.abhiram.model.User;
 import org.springframework.hateoas.Link;
-import org.springframework.hateoas.server.mvc.ControllerLinkBuilder;
+import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,13 +22,15 @@ public class UserResource {
         return Arrays.asList(user1, user2);
     }
 
-    @GetMapping("/hateoas/all")
+    @GetMapping(value = "/hateoas/all", produces = MediaTypes.HAL_JSON_VALUE)
     public List<User> getHateOasUsers() {
         User user1 = new User("Ram", 2300L);
-        Link link = ControllerLinkBuilder.linkTo(UserResource.class).slash(user1.getName()).withSelfRel();
-        user1.add(link);
+        //ControllerLinkBuilder is deprecated.
+        Link link1 = WebMvcLinkBuilder.linkTo(UserResource.class).slash(user1.getName()).withSelfRel();
+        Link link2 = WebMvcLinkBuilder.linkTo(UserResource.class).slash(user1.getSalary()).withRel("salary");
+        user1.add(link1, link2);
         User user2 = new User("Abhi", 2400L);
-        user2.add(link);
+        user2.add(WebMvcLinkBuilder.linkTo(UserResource.class).slash(user2.getName()).withSelfRel());
         return Arrays.asList(user1, user2);
     }
 }

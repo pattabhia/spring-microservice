@@ -6,7 +6,6 @@
         <groupId>com.abhiram</groupId>
         <artifactId>microservice-projects</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <artifactId>rest-hateoas</artifactId>
     <version>0.0.1-SNAPSHOT</version>

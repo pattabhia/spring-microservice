@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.abhiram</groupId>
-        <artifactId>microservice-projects</artifactId>
+        <artifactId>eureka-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>eureka-service</artifactId>
+    <artifactId>hello-client-1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka-service</name>
-    <description>Eureka Service</description>
+    <name>hello-client-1</name>
+    <description>hello-client-1</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -20,19 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
     </dependencies>
 

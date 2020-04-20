@@ -21,10 +21,6 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-hateoas</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
@@ -49,7 +45,7 @@
     <modules>
         <module>rest-hateoas</module>
         <module>zuul-example</module>
-        <module>eureka-service</module>
+        <module>eureka-demo</module>
     </modules>
 
     <build>

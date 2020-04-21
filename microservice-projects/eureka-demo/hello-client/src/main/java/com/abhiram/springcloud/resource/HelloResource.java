@@ -1,5 +1,6 @@
 package com.abhiram.springcloud.resource;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ public class HelloResource {
     @Autowired
     private RestTemplate restTemplate;
 
+    @HystrixCommand
     @GetMapping
     public String hello() throws URISyntaxException {
         URI url = new URI("http://hello-server/rest/hello/server/").normalize();

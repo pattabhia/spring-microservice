@@ -17,10 +17,14 @@ public class HelloResource {
     @Autowired
     private RestTemplate restTemplate;
 
-    @HystrixCommand
+    @HystrixCommand(fallbackMethod = "fallback")
     @GetMapping
     public String hello() throws URISyntaxException {
         URI url = new URI("http://hello-server/rest/hello/server/").normalize();
         return restTemplate.getForObject(url, String.class);
+    }
+
+    public String fallback() {
+        return "Fall Back Hello World";
     }
 }

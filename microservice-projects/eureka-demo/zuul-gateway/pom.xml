@@ -7,11 +7,11 @@
         <artifactId>eureka-demo</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
-    <artifactId>zuul-example</artifactId>
+    <groupId>com.example</groupId>
+    <artifactId>zuul-gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zuul-service</name>
-    <description>Zuul Proxy Example</description>
+    <name>zuul-gateway</name>
+    <description>zuul-gateway</description>
 
     <properties>
         <java.version>1.8</java.version>

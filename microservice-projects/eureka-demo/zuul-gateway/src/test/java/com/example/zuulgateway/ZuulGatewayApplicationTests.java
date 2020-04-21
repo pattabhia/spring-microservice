@@ -1,10 +1,10 @@
-package com.abhiram.zuul.example;
+package com.example.zuulgateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ZuulExampleApplicationTests {
+class ZuulGatewayApplicationTests {
 
     @Test
     void contextLoads() {

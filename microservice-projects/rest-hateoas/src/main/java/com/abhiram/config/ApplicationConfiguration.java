@@ -1,18 +1,20 @@
 package com.abhiram.config;
 
-import org.springframework.boot.web.client.RestTemplateCustomizer;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.content.rest.config.
+import org.springframework.web.client.RestTemplate;
+
+import java.time.Duration;
 
 @Configuration
 public class ApplicationConfiguration {
 
     @Bean
-    RestTemplateCustomizer restTemplateCustomizer(
-            HypermediaRestTemplateConfigurer configurer) {
-        return restTemplate -> {
-            configurer.registerHypermediaTypes(restTemplate);
-        };
+    public RestTemplate restTemplate(RestTemplateBuilder builder) {
+        return builder
+                .setConnectTimeout(Duration.ofMillis(3000))
+                .setReadTimeout(Duration.ofMillis(3000))
+                .build();
     }
 }

@@ -1,6 +1,6 @@
 package com.abhiram.resource;
 
-import com.abhiram.model.Example;
+import com.abhiram.model.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class EmployeeResource {
     private RestTemplate restTemplate;
 
     @GetMapping(value = "/employees", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Example getAllEmployees(@PathVariable String id) {
-        return restTemplate.getForObject("http://dummy.restapiexample.com/api/v1/employee/{id}", Example.class);
+    public Employee getAllEmployees(@PathVariable String id) {
+        return restTemplate.getForObject("http://dummy.restapiexample.com/api/v1/employee/{id}", Employee.class);
     }
 }

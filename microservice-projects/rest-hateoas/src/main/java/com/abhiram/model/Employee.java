@@ -1,52 +1,54 @@
 package com.abhiram.model;
 
-import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.*;
+
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({
+        "status",
+        "data"
+})
 public class Employee implements Serializable {
 
-    private String id;
-    private String employee_name;
-    private String employee_salary;
-    private String employee_age;
-    private String profile_image;
+    @JsonProperty("status")
+    private String status;
+    @JsonProperty("data")
+    private Data data;
+    @JsonIgnore
+    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    public String getId() {
-        return id;
+    @JsonProperty("status")
+    public String getStatus() {
+        return status;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    @JsonProperty("status")
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getEmployee_name() {
-        return employee_name;
+    @JsonProperty("data")
+    public Data getData() {
+        return data;
     }
 
-    public void setEmployee_name(String employee_name) {
-        this.employee_name = employee_name;
+    @JsonProperty("data")
+    public void setData(Data data) {
+        this.data = data;
     }
 
-    public String getEmployee_salary() {
-        return employee_salary;
+    @JsonAnyGetter
+    public Map<String, Object> getAdditionalProperties() {
+        return this.additionalProperties;
     }
 
-    public void setEmployee_salary(String employee_salary) {
-        this.employee_salary = employee_salary;
+    @JsonAnySetter
+    public void setAdditionalProperty(String name, Object value) {
+        this.additionalProperties.put(name, value);
     }
 
-    public String getEmployee_age() {
-        return employee_age;
-    }
-
-    public void setEmployee_age(String employee_age) {
-        this.employee_age = employee_age;
-    }
-
-    public String getProfile_image() {
-        return profile_image;
-    }
-
-    public void setProfile_image(String profile_image) {
-        this.profile_image = profile_image;
-    }
 }
